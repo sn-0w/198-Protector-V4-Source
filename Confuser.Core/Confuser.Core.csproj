@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1517DB0-6941-4B56-ACCC-00A602A6B231}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Confuser.Core</RootNamespace>
+    <AssemblyName>Confuser.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dnlib">
+      <HintPath>..\..\..\Dumps\dnlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory" />
+    <Reference Include="System.ValueTuple" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AfterProtectionAttribute.cs" />
+    <Compile Include="Annotations.cs" />
+    <Compile Include="API\APIStore.cs" />
+    <Compile Include="API\IAPIStore.cs" />
+    <Compile Include="API\IDataStore.cs" />
+    <Compile Include="API\IDataStoreAccessor.cs" />
+    <Compile Include="API\IOpaquePredicate.cs" />
+    <Compile Include="API\IOpaquePredicateDescriptor.cs" />
+    <Compile Include="API\OpaquePredicateType.cs" />
+    <Compile Include="BeforeProtectionAttribute.cs" />
+    <Compile Include="CircularDependencyException.cs" />
+    <Compile Include="ConfuserComponent.cs" />
+    <Compile Include="ConfuserContext.cs" />
+    <Compile Include="ConfuserEngine.cs" />
+    <Compile Include="ConfuserException.cs" />
+    <Compile Include="ConfuserParameters.cs" />
+    <Compile Include="CoreComponent.cs" />
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="DnlibUtils.cs" />
+    <Compile Include="Helpers\BlockKey.cs" />
+    <Compile Include="Helpers\BlockKeyType.cs" />
+    <Compile Include="Helpers\ControlFlowBlock.cs" />
+    <Compile Include="Helpers\ControlFlowBlockType.cs" />
+    <Compile Include="Helpers\ControlFlowGraph.cs" />
+    <Compile Include="Helpers\InjectHelper.cs" />
+    <Compile Include="Helpers\KeySequence.cs" />
+    <Compile Include="Helpers\MutationHelper.cs" />
+    <Compile Include="Helpers\NewInjector\CryptProcessor.cs" />
+    <Compile Include="Helpers\NewInjector\IInjectBehavior.cs" />
+    <Compile Include="Helpers\NewInjector\IMethodInjectProcessor.cs" />
+    <Compile Include="Helpers\NewInjector\InjectHelper.cs" />
+    <Compile Include="Helpers\NewInjector\InjectResult.2.cs" />
+    <Compile Include="Helpers\NewInjector\InjectResult.cs" />
+    <Compile Include="Helpers\NewInjector\LateMutationFieldUpdate.cs" />
+    <Compile Include="Helpers\NewInjector\MutationField.cs" />
+    <Compile Include="Helpers\NewInjector\MutationProcessor.cs" />
+    <Compile Include="Helpers\NewInjector\PlaceholderProcessor.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="Marker.cs" />
+    <Compile Include="MarkerResult.cs" />
+    <Compile Include="ModuleSorter.cs" />
+    <Compile Include="NativeEraser.cs" />
+    <Compile Include="NullLogger.cs" />
+    <Compile Include="ObfAttrMarker.cs" />
+    <Compile Include="ObfAttrParser.cs" />
+    <Compile Include="Packer.cs" />
+    <Compile Include="PackerDiscovery.cs" />
+    <Compile Include="PackerLogger.cs" />
+    <Compile Include="PackerMarker.cs" />
+    <Compile Include="PipelineStage.cs" />
+    <Compile Include="PluginDiscovery.cs" />
+    <Compile Include="Project\ConfuserProject.cs" />
+    <Compile Include="Project\InvalidPatternException.cs" />
+    <Compile Include="Project\PatternParser.cs" />
+    <Compile Include="Project\Patterns\AndOperator.cs" />
+    <Compile Include="Project\Patterns\DeclTypeFunction.cs" />
+    <Compile Include="Project\Patterns\FullNameFunction.cs" />
+    <Compile Include="Project\Patterns\HasAttrFunction.cs" />
+    <Compile Include="Project\Patterns\InheritsFunction.cs" />
+    <Compile Include="Project\Patterns\IsPublicFunction.cs" />
+    <Compile Include="Project\Patterns\IsTypeFunction.cs" />
+    <Compile Include="Project\Patterns\LiteralExpression.cs" />
+    <Compile Include="Project\Patterns\MatchFunction.cs" />
+    <Compile Include="Project\Patterns\MatchNameFunction.cs" />
+    <Compile Include="Project\Patterns\MatchTypeNameFunction.cs" />
+    <Compile Include="Project\Patterns\MemberTypeFunction.cs" />
+    <Compile Include="Project\Patterns\ModuleFunction.cs" />
+    <Compile Include="Project\Patterns\NameFunction.cs" />
+    <Compile Include="Project\Patterns\NamespaceFunction.cs" />
+    <Compile Include="Project\Patterns\NotOperator.cs" />
+    <Compile Include="Project\Patterns\OrOperator.cs" />
+    <Compile Include="Project\Patterns\PatternExpression.cs" />
+    <Compile Include="Project\Patterns\PatternFunction.cs" />
+    <Compile Include="Project\Patterns\PatternOperator.cs" />
+    <Compile Include="Project\PatternToken.cs" />
+    <Compile Include="Project\PatternTokenizer.cs" />
+    <Compile Include="Project\ProjectModule.cs" />
+    <Compile Include="Project\ProjectValidationException.cs" />
+    <Compile Include="Project\Rule.cs" />
+    <Compile Include="Project\SettingItem.cs" />
+    <Compile Include="Project\SettingItemAction.cs" />
+    <Compile Include="Project\TokenType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protection.cs" />
+    <Compile Include="ProtectionParameters.cs" />
+    <Compile Include="ProtectionPhase.cs" />
+    <Compile Include="ProtectionPipeline.cs" />
+    <Compile Include="ProtectionPreset.cs" />
+    <Compile Include="ProtectionSettings.cs" />
+    <Compile Include="ProtectionTargets.cs" />
+    <Compile Include="ServiceRegistry.cs" />
+    <Compile Include="Services\CompressionService.cs" />
+    <Compile Include="Services\ICompressionService.cs" />
+    <Compile Include="Services\IMarkerService.cs" />
+    <Compile Include="Services\IRandomService.cs" />
+    <Compile Include="Services\IRuntimeService.cs" />
+    <Compile Include="Services\ITraceService.cs" />
+    <Compile Include="Services\MarkerService.cs" />
+    <Compile Include="Services\MethodTrace.cs" />
+    <Compile Include="Services\RandomGenerator.cs" />
+    <Compile Include="Services\RandomService.cs" />
+    <Compile Include="Services\RuntimeService.cs" />
+    <Compile Include="Services\TraceService.cs" />
+    <Compile Include="SevenZip\Buffer\InBuffer.cs" />
+    <Compile Include="SevenZip\Buffer\OutBuffer.cs" />
+    <Compile Include="SevenZip\CoderPropID.cs" />
+    <Compile Include="SevenZip\Compression\LZMA\Base.cs" />
+    <Compile Include="SevenZip\Compression\LZMA\Decoder.cs" />
+    <Compile Include="SevenZip\Compression\LZMA\Encoder.cs" />
+    <Compile Include="SevenZip\Compression\LZ\BinTree.cs" />
+    <Compile Include="SevenZip\Compression\LZ\IInWindowStream.cs" />
+    <Compile Include="SevenZip\Compression\LZ\IMatchFinder.cs" />
+    <Compile Include="SevenZip\Compression\LZ\InWindow.cs" />
+    <Compile Include="SevenZip\Compression\LZ\OutWindow.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\BitDecoder.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\BitEncoder.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\BitTreeDecoder.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\BitTreeEncoder.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\Decoder.cs" />
+    <Compile Include="SevenZip\Compression\RangeCoder\Encoder.cs" />
+    <Compile Include="SevenZip\CRC.cs" />
+    <Compile Include="SevenZip\DataErrorException.cs" />
+    <Compile Include="SevenZip\ICodeProgress.cs" />
+    <Compile Include="SevenZip\ICoder.cs" />
+    <Compile Include="SevenZip\InvalidParamException.cs" />
+    <Compile Include="SevenZip\ISetCoderProperties.cs" />
+    <Compile Include="SevenZip\ISetDecoderProperties.cs" />
+    <Compile Include="SevenZip\IWriteCoderProperties.cs" />
+    <Compile Include="UnreachableException.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Project\ConfuserPrj.xsd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

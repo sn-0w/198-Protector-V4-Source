@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19A9E8C6-5C89-4829-AF2D-0D95993D2F7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Confuser.DynCipher</RootNamespace>
+    <AssemblyName>Confuser.DynCipher</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Confuser.Core">
+      <HintPath>..\..\..\Dumps\Confuser.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="dnlib">
+      <HintPath>..\..\..\Dumps\dnlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AST\ArrayIndexExpression.cs" />
+    <Compile Include="AST\AssignmentStatement.cs" />
+    <Compile Include="AST\BinOpExpression.cs" />
+    <Compile Include="AST\BinOps.cs" />
+    <Compile Include="AST\Expression.cs" />
+    <Compile Include="AST\LiteralExpression.cs" />
+    <Compile Include="AST\LoopStatement.cs" />
+    <Compile Include="AST\Statement.cs" />
+    <Compile Include="AST\StatementBlock.cs" />
+    <Compile Include="AST\UnaryOpExpression.cs" />
+    <Compile Include="AST\UnaryOps.cs" />
+    <Compile Include="AST\Variable.cs" />
+    <Compile Include="AST\VariableExpression.cs" />
+    <Compile Include="CodeGenUtils.cs" />
+    <Compile Include="DynCipherComponent.cs" />
+    <Compile Include="DynCipherService.cs" />
+    <Compile Include="Elements\AddKey.cs" />
+    <Compile Include="Elements\BinOp.cs" />
+    <Compile Include="Elements\CryptoBinOps.cs" />
+    <Compile Include="Elements\CryptoElement.cs" />
+    <Compile Include="Elements\CryptoNumOps.cs" />
+    <Compile Include="Elements\Matrix.cs" />
+    <Compile Include="Elements\NumOp.cs" />
+    <Compile Include="Elements\RotateBit.cs" />
+    <Compile Include="Elements\Swap.cs" />
+    <Compile Include="Generation\CILCodeGen.cs" />
+    <Compile Include="Generation\CipherGenContext.cs" />
+    <Compile Include="Generation\CipherGenerator.cs" />
+    <Compile Include="Generation\DMCodeGen.cs" />
+    <Compile Include="Generation\ExpressionGenerator.cs" />
+    <Compile Include="Generation\Ix86Operand.cs" />
+    <Compile Include="Generation\x86CodeGen.cs" />
+    <Compile Include="Generation\x86ImmediateOperand.cs" />
+    <Compile Include="Generation\x86Instruction.cs" />
+    <Compile Include="Generation\x86OpCode.cs" />
+    <Compile Include="Generation\x86Register.cs" />
+    <Compile Include="Generation\x86RegisterOperand.cs" />
+    <Compile Include="IDynCipherService.cs" />
+    <Compile Include="MathsUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transforms\ConvertVariables.cs" />
+    <Compile Include="Transforms\ExpansionTransform.cs" />
+    <Compile Include="Transforms\MulToShiftTransform.cs" />
+    <Compile Include="Transforms\NormalizeBinOpTransform.cs" />
+    <Compile Include="Transforms\ShuffleTransform.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

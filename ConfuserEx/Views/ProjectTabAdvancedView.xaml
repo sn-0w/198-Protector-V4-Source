@@ -1,0 +1,112 @@
+<Window
+	x:Class="ConfuserEx.Views.ProjectTabAdvancedView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ConfuserEx"
+	Title="Advanced Settings..."
+	Height="400"
+	Width="600"
+	Style="{StaticResource DarkWindow}"
+	ShowInTaskbar="False"
+	ResizeMode="NoResize" xmlns:views="clr-namespace:ConfuserEx.Views">
+	<Grid
+		Margin="5">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="36px" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="36px" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="36px" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="0"
+			Content="Probe Paths :"
+			Margin="5"
+			VerticalAlignment="Center" />
+		<ListBox
+			Name="ProbePaths"
+			Grid.Row="1"
+			Grid.Column="0"
+			Margin="5"
+			local:FileDragDrop.Command="{x:Static local:FileDragDrop.DirectoryCmd}"
+			ScrollViewer.CanContentScroll="False"
+			ItemsSource="{Binding ProbePaths}" />
+		<StackPanel
+			Grid.Row="1"
+			Grid.Column="1">
+			<Button
+				Name="AddProbe"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+			<Button
+				Name="RemoveProbe"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+		</StackPanel>
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			Content="Plugins :"
+			Margin="5"
+			VerticalAlignment="Center" />
+		<ListBox
+			Name="PluginPaths"
+			Grid.Row="1"
+			Grid.Column="2"
+			Margin="5"
+			local:FileDragDrop.Command="{x:Static local:FileDragDrop.FileCmd}"
+			ScrollViewer.CanContentScroll="False"
+			ItemsSource="{Binding Plugins}" />
+		<StackPanel
+			Grid.Row="1"
+			Grid.Column="3">
+			<Button
+				Name="AddPlugin"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+			<Button
+				Name="RemovePlugin"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+		</StackPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,162 @@
+<Window
+	x:Class="ConfuserEx.Views.ProjectRuleView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ConfuserEx" xmlns:core="clr-namespace:Confuser.Core;assembly=Confuser.Core" xmlns:proj="clr-namespace:Confuser.Core.Project;assembly=Confuser.Core"
+	Name="View"
+	Title="Edit rule..."
+	Height="600"
+	Width="400"
+	Style="{StaticResource DarkWindow}"
+	ShowInTaskbar="False"
+	ResizeMode="NoResize" xmlns:views="clr-namespace:ConfuserEx.Views">
+	<Grid
+		Margin="5">
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<local:ComponentConverter xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+					x:Freeze="True"
+					Components="{Binding Project.Protections}"
+					x:Key="ProtConverter" />
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="36px" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="25px" />
+			<RowDefinition
+				Height="36px" />
+			<RowDefinition
+				Height="36px" />
+			<RowDefinition
+				Height="25px" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="40px" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.ColumnSpan="2"
+			Content="Pattern:"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Left" />
+		<TextBox
+			Name="pattern"
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			FontFamily="Consolas"
+			Margin="5"
+			VerticalContentAlignment="Center"
+			Text="{Binding Pattern, UpdateSourceTrigger=PropertyChanged}" />
+		<Image
+			Name="errorImg"
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			Source="{StaticResource Error}"
+			Width="16px"
+			Height="16px"
+			Margin="0,0,10,0"
+			Visibility="Hidden"
+			HorizontalAlignment="Right"
+			ToolTip="{Binding ExpressionError}" />
+		<DockPanel
+			Grid.Row="2"
+			Grid.ColumnSpan="2"
+			LastChildFill="False">
+			<Label
+				DockPanel.Dock="Left"
+				Content="Preset : "
+				VerticalAlignment="Center" />
+			<ComboBox
+				DockPanel.Dock="Left"
+				Margin="5"
+				Width="104"
+				VerticalAlignment="Center"
+				SelectedItem="{Binding Preset, UpdateSourceTrigger=PropertyChanged}"
+				ItemsSource="{local:EnumValues {x:Type core:ProtectionPreset}}" />
+			<CheckBox
+				DockPanel.Dock="Right"
+				Content="Inherit protections"
+				Margin="5"
+				VerticalAlignment="Center"
+				IsChecked="{Binding Inherit}" />
+		</DockPanel>
+		<Label
+			Grid.Row="3"
+			Content="Protections:"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Left" />
+		<ListBox
+			Name="prots"
+			Grid.Row="4"
+			Margin="5"
+			Grid.IsSharedSizeScope="True"
+			ItemsSource="{Binding Protections}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								SharedSizeGroup="Action" />
+							<ColumnDefinition
+								Width="10px" />
+							<ColumnDefinition
+								SharedSizeGroup="Protection" />
+						</Grid.ColumnDefinitions>
+						<ComboBox
+							Grid.Column="0"
+							Width="80"
+							IsEnabled="True"
+							SelectedItem="{Binding Action}"
+							ItemsSource="{local:EnumValues {x:Type proj:SettingItemAction}}" />
+						<local:CompComboBox
+							Grid.Column="2"
+							Width="150"
+							Components="{Binding Project.Protections, ElementName=View}"
+							SelectedComponent="{Binding Id, Converter={StaticResource ProtConverter}, Mode=TwoWay}" />
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+		<DockPanel
+			Grid.Row="4"
+			Grid.Column="1"
+			LastChildFill="False">
+			<Button
+				Name="AddBtn"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+			<Button
+				Name="RemoveBtn"
+				Height="26"
+				Margin="5"
+				DockPanel.Dock="Top">
+				<TextBlock
+					FontSize="14px"
+					FontFamily="{DynamicResource FontAwesome}"
+					Text=""
+					Height="12px"
+					TextOptions.TextRenderingMode="GrayScale" />
+			</Button>
+		</DockPanel>
+		<Button
+			Grid.Row="5"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Right"
+			Margin="5"
+			Width="70"
+			Content="Done"
+			Click="Done" />
+	</Grid>
+</Window>

@@ -1,0 +1,36 @@
+<Application
+	x:Class="ConfuserEx.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:confuserex="clr-namespace:ConfuserEx">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Skin.xaml" />
+				<ResourceDictionary
+					Source="Views.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<BitmapImage
+				UriSource="Resources/New.png"
+				x:Key="New" />
+			<BitmapImage
+				UriSource="Resources/Open.png"
+				x:Key="Open" />
+			<BitmapImage
+				UriSource="Resources/Save.png"
+				x:Key="Save" />
+			<BitmapImage
+				UriSource="Resources/Tools.png"
+				x:Key="Tools" />
+			<BitmapImage
+				UriSource="Resources/Decode.png"
+				x:Key="Decode" />
+			<BitmapImage
+				UriSource="Resources/Error.png"
+				x:Key="Error" />
+			<BitmapImage
+				UriSource="Resources/TeamLogo.png"
+				x:Key="TeamLogo" />
+			<FontFamily
+				x:Key="FontAwesome">Resources/#FontAwesome</FontFamily>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

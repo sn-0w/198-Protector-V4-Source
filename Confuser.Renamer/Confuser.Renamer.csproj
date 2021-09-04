@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C23ABE71-5100-48F2-B3B0-42F3A49ACD74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Confuser.Renamer</RootNamespace>
+    <AssemblyName>Confuser.Renamer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Confuser.Core">
+      <HintPath>..\..\..\Dumps\Confuser.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="dnlib">
+      <HintPath>..\..\..\Dumps\dnlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple" />
+    <Reference Include="System.Web" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzePhase.cs" />
+    <Compile Include="Analyzers\AspNetCoreAnalyzer.cs" />
+    <Compile Include="Analyzers\CaliburnAnalyzer.cs" />
+    <Compile Include="Analyzers\InterReferenceAnalyzer.cs" />
+    <Compile Include="Analyzers\JsonAnalyzer.cs" />
+    <Compile Include="Analyzers\LdtokenEnumAnalyzer.cs" />
+    <Compile Include="Analyzers\NancyFxAnalyzer.cs" />
+    <Compile Include="Analyzers\ReflectionAnalyzer.cs" />
+    <Compile Include="Analyzers\ResourceAnalyzer.cs" />
+    <Compile Include="Analyzers\TypeBlobAnalyzer.cs" />
+    <Compile Include="Analyzers\VisualBasicRuntimeAnalyzer.cs" />
+    <Compile Include="Analyzers\VTableAnalyzer.cs" />
+    <Compile Include="Analyzers\WinFormsAnalyzer.cs" />
+    <Compile Include="Analyzers\WPFAnalyzer.cs" />
+    <Compile Include="BAML\AssemblyInfoRecord.cs" />
+    <Compile Include="BAML\AttributeInfoRecord.cs" />
+    <Compile Include="BAML\BAMLAnalyzer.cs" />
+    <Compile Include="BAML\BamlBinaryReader.cs" />
+    <Compile Include="BAML\BamlBinaryWriter.cs" />
+    <Compile Include="BAML\BamlDocument.cs" />
+    <Compile Include="BAML\BamlElement.cs" />
+    <Compile Include="BAML\BAMLPropertyReference.cs" />
+    <Compile Include="BAML\BamlReader.cs" />
+    <Compile Include="BAML\BamlRecord.cs" />
+    <Compile Include="BAML\BamlRecordType.cs" />
+    <Compile Include="BAML\BAMLStringReference.cs" />
+    <Compile Include="BAML\BamlWriter.cs" />
+    <Compile Include="BAML\ConnectionIdRecord.cs" />
+    <Compile Include="BAML\ConstructorParametersEndRecord.cs" />
+    <Compile Include="BAML\ConstructorParametersStartRecord.cs" />
+    <Compile Include="BAML\ConstructorParameterTypeRecord.cs" />
+    <Compile Include="BAML\ContentPropertyRecord.cs" />
+    <Compile Include="BAML\DefAttributeKeyStringRecord.cs" />
+    <Compile Include="BAML\DefAttributeKeyTypeRecord.cs" />
+    <Compile Include="BAML\DefAttributeRecord.cs" />
+    <Compile Include="BAML\DeferableContentStartRecord.cs" />
+    <Compile Include="BAML\DocumentEndRecord.cs" />
+    <Compile Include="BAML\DocumentStartRecord.cs" />
+    <Compile Include="BAML\DrillIn.cs" />
+    <Compile Include="BAML\ElementEndRecord.cs" />
+    <Compile Include="BAML\ElementStartRecord.cs" />
+    <Compile Include="BAML\IBamlDeferRecord.cs" />
+    <Compile Include="BAML\IBAMLReference.cs" />
+    <Compile Include="BAML\IKnownThings.cs" />
+    <Compile Include="BAML\IndexerParamInfo.cs" />
+    <Compile Include="BAML\KeyElementEndRecord.cs" />
+    <Compile Include="BAML\KeyElementStartRecord.cs" />
+    <Compile Include="BAML\KnownProperties.cs" />
+    <Compile Include="BAML\KnownThingsv3.cs" />
+    <Compile Include="BAML\KnownThingsv4.cs" />
+    <Compile Include="BAML\KnownTypes.cs" />
+    <Compile Include="BAML\LineNumberAndPositionRecord.cs" />
+    <Compile Include="BAML\LinePositionRecord.cs" />
+    <Compile Include="BAML\LiteralContentRecord.cs" />
+    <Compile Include="BAML\NamedElementStartRecord.cs" />
+    <Compile Include="BAML\OptimizedStaticResourceRecord.cs" />
+    <Compile Include="BAML\PIMappingRecord.cs" />
+    <Compile Include="BAML\PresentationOptionsAttributeRecord.cs" />
+    <Compile Include="BAML\PropertyArrayEndRecord.cs" />
+    <Compile Include="BAML\PropertyArrayStartRecord.cs" />
+    <Compile Include="BAML\PropertyComplexEndRecord.cs" />
+    <Compile Include="BAML\PropertyComplexStartRecord.cs" />
+    <Compile Include="BAML\PropertyCustomRecord.cs" />
+    <Compile Include="BAML\PropertyDictionaryEndRecord.cs" />
+    <Compile Include="BAML\PropertyDictionaryStartRecord.cs" />
+    <Compile Include="BAML\PropertyListEndRecord.cs" />
+    <Compile Include="BAML\PropertyListStartRecord.cs" />
+    <Compile Include="BAML\PropertyPath.cs" />
+    <Compile Include="BAML\PropertyPathExtensions.cs" />
+    <Compile Include="BAML\PropertyPathIndexer.cs" />
+    <Compile Include="BAML\PropertyPathParser.cs" />
+    <Compile Include="BAML\PropertyPathPart.cs" />
+    <Compile Include="BAML\PropertyRecord.cs" />
+    <Compile Include="BAML\PropertyStringReferenceRecord.cs" />
+    <Compile Include="BAML\PropertyTypeReferenceRecord.cs" />
+    <Compile Include="BAML\PropertyWithConverterRecord.cs" />
+    <Compile Include="BAML\PropertyWithExtensionRecord.cs" />
+    <Compile Include="BAML\PropertyWithStaticResourceIdRecord.cs" />
+    <Compile Include="BAML\RoutedEventRecord.cs" />
+    <Compile Include="BAML\SizedBamlRecord.cs" />
+    <Compile Include="BAML\SourceValueInfo.cs" />
+    <Compile Include="BAML\SourceValueType.cs" />
+    <Compile Include="BAML\StaticResourceEndRecord.cs" />
+    <Compile Include="BAML\StaticResourceIdRecord.cs" />
+    <Compile Include="BAML\StaticResourceStartRecord.cs" />
+    <Compile Include="BAML\StringInfoRecord.cs" />
+    <Compile Include="BAML\TextRecord.cs" />
+    <Compile Include="BAML\TextWithConverterRecord.cs" />
+    <Compile Include="BAML\TextWithIdRecord.cs" />
+    <Compile Include="BAML\TypeInfoRecord.cs" />
+    <Compile Include="BAML\TypeSerializerInfoRecord.cs" />
+    <Compile Include="BAML\XmlnsPropertyRecord.cs" />
+    <Compile Include="CryptoObfuscatorHelper.cs" />
+    <Compile Include="dnlib\DotNet\GenericArguments.cs" />
+    <Compile Include="dnlib\DotNet\GenericArgumentsStack.cs" />
+    <Compile Include="dnlib\DotNet\RecursionCounter.cs" />
+    <Compile Include="GenericArgumentResolver.cs" />
+    <Compile Include="INameReference.2.cs" />
+    <Compile Include="INameReference.cs" />
+    <Compile Include="INameService.cs" />
+    <Compile Include="IRenamer.cs" />
+    <Compile Include="NameProtection.cs" />
+    <Compile Include="NameService.cs" />
+    <Compile Include="PostRenamePhase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="References\BAMLAttributeReference.cs" />
+    <Compile Include="References\BAMLConverterMemberReference.cs" />
+    <Compile Include="References\BAMLConverterTypeReference.cs" />
+    <Compile Include="References\BAMLEnumReference.cs" />
+    <Compile Include="References\BAMLPathTypeReference.cs" />
+    <Compile Include="References\BAMLTypeReference.cs" />
+    <Compile Include="References\CAMemberReference.cs" />
+    <Compile Include="References\MemberRefReference.cs" />
+    <Compile Include="References\OverrideDirectiveReference.cs" />
+    <Compile Include="References\ResourceReference.cs" />
+    <Compile Include="References\StringTypeReference.cs" />
+    <Compile Include="References\TypeRefReference.cs" />
+    <Compile Include="RenameMode.cs" />
+    <Compile Include="RenamePhase.cs" />
+    <Compile Include="ReversibleRenamer.cs" />
+    <Compile Include="VTable.cs" />
+    <Compile Include="VTableSignature.cs" />
+    <Compile Include="VTableSlot.cs" />
+    <Compile Include="VTableStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

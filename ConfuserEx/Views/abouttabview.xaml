@@ -1,0 +1,196 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ConfuserEx" xmlns:vm="clr-namespace:ConfuserEx.ViewModel" xmlns:core="clr-namespace:Confuser.Core;assembly=Confuser.Core">
+	<DataTemplate
+		DataType="{x:Type vm:AboutTabVM}"
+		x:Key="{DataTemplateKey {x:Type vm:AboutTabVM}}">
+		<Grid
+			Name="Root"
+			Background="#00FFFFFF"
+			Margin="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="400px" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="70px" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="100px" />
+			</Grid.RowDefinitions>
+			<Grid
+				Row="0"
+				Column="0"
+				HorizontalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="70px" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Image
+					Grid.Row="0"
+					Grid.Column="0"
+					Grid.RowSpan="2"
+					Width="64"
+					Height="64"
+					Source="{Binding Icon}" />
+				<Label
+					Grid.Row="0"
+					Grid.Column="1"
+					FontSize="20"
+					Content="198 Protector V2"
+					Foreground="#ffffff" />
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					FontSize="14"
+					Text="Made with ♥ by Wadu"
+					Foreground="#a0a0a0"
+					BorderThickness="0"
+					VerticalAlignment="Center"
+					Background="#00FFFFFF"
+					IsReadOnly="True"
+					IsReadOnlyCaretVisible="True"
+					local:Skin.FocusOverlay="False" />
+			</Grid>
+			<DockPanel
+				Grid.Row="1"
+				Grid.Column="0"
+				Margin="10"
+				LastChildFill="True"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Stretch">
+				<Separator
+					DockPanel.Dock="Top" />
+				<Separator
+					DockPanel.Dock="Bottom" />
+				<StackPanel
+					TextBlock.FontSize="13"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Stretch">
+					<Label
+						FontWeight="Bold">198 Protector V2, a .NET protector/obfuscator</Label>
+					<Label>Developed by Wadu,</Label>
+					<Label>with compatibilityand security in mind.</Label>
+					<Label
+						Height="20px" />
+					<Label>If you need to contact me,</Label>
+					<Label>Message me on Discord: Wadu#6232</Label>
+					<Label>
+						<Hyperlink
+							NavigateUri="https://discord.gg/KeCjZQh"
+							CommandParameter="https://discord.gg/KeCjZQh"
+							Command="{Binding LaunchBrowser}">Or join the Discord server</Hyperlink>
+					</Label>
+				</StackPanel>
+			</DockPanel>
+			<Button
+				Grid.Row="2"
+				Grid.Column="0"
+				CommandParameter="http://github.com/yck1509/ConfuserEx"
+				Focusable="False"
+				Cursor="Hand"
+				Command="{Binding LaunchBrowser}">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type Button}">
+						<ContentPresenter />
+					</ControlTemplate>
+				</Control.Template>
+				<Image
+					Source="{DynamicResource TeamLogo}"
+					Width="400"
+					Height="100" />
+			</Button>
+			<StackPanel
+				Grid.Column="1"
+				Grid.RowSpan="3"
+				TextBlock.FontSize="13"
+				Margin="10"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Center">
+				<Label
+					HorizontalContentAlignment="Center">Special Thanks to:</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/0xd4d/"
+						CommandParameter="http://github.com/0xd4d/"
+						Command="{Binding LaunchBrowser}">0xd4d</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="https://github.com/yck1509/"
+						CommandParameter="https://github.com/yck1509/"
+						Command="{Binding LaunchBrowser}">yck1509 (Ki)</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/HoLLy-HaCKeR/"
+						CommandParameter="http://github.com/HoLLy-HaCKeR/"
+						Command="{Binding LaunchBrowser}">HoLLy-HaCKeR</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/mkaring/"
+						CommandParameter="http://github.com/mkaring/"
+						Command="{Binding LaunchBrowser}">Martin Karing</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/CodeOfDark/"
+						CommandParameter="http://github.com/CodeOfDark/"
+						Command="{Binding LaunchBrowser}">CodeOfDark</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/BahNahNah/"
+						CommandParameter="http://github.com/BahNahNah/"
+						Command="{Binding LaunchBrowser}">BahNahNah</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="https://github.com/Charterino/"
+						CommandParameter="https://github.com/Charterino/"
+						Command="{Binding LaunchBrowser}">Charterino</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/Tanasittx/"
+						CommandParameter="http://github.com/Tanasittx/"
+						Command="{Binding LaunchBrowser}">Tanasittx</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="http://github.com/Eddy420CZ/"
+						CommandParameter="http://github.com/Eddy420CZ/"
+						Command="{Binding LaunchBrowser}">Eddy^CZ</Hyperlink>
+				</Label>
+				<Label
+					HorizontalContentAlignment="Center">
+					<Hyperlink
+						NavigateUri="https://github.com/KrawkRE/"
+						CommandParameter="https://github.com/KrawkRE/"
+						Command="{Binding LaunchBrowser}">KrawkRE</Hyperlink>
+				</Label>
+			</StackPanel>
+		</Grid>
+	</DataTemplate>
+</ResourceDictionary>

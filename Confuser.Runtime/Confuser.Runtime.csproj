@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F158DC96-B9E0-4C29-B524-903C168E4CFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Confuser.Runtime</RootNamespace>
+    <AssemblyName>Confuser.Runtime</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AntiDebugAntinet.cs" />
+    <Compile Include="AntiDebugSafe.cs" />
+    <Compile Include="AntiDebugUltimate.cs" />
+    <Compile Include="AntiDebugWin32.cs" />
+    <Compile Include="AntiDnspy.cs" />
+    <Compile Include="AntiDump.cs" />
+    <Compile Include="AntiFiddler.cs" />
+    <Compile Include="AntiHttpDebugger.cs" />
+    <Compile Include="AntiMemoryEditing\ObfuscatedValue.cs" />
+    <Compile Include="AntiTamperAnti.cs" />
+    <Compile Include="AntiTamperJIT.cs" />
+    <Compile Include="AntiTamperNormal.cs" />
+    <Compile Include="Calli.cs" />
+    <Compile Include="CFGCtx.cs" />
+    <Compile Include="Compressor.cs" />
+    <Compile Include="CompressorCompat.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="ConstantMutation.cs" />
+    <Compile Include="FakeObfuscator\BabelDotNet.cs" />
+    <Compile Include="FakeObfuscator\CodeFort.cs" />
+    <Compile Include="FakeObfuscator\CodeWall.cs" />
+    <Compile Include="FakeObfuscator\CryptoObfuscator.cs" />
+    <Compile Include="FakeObfuscator\Dotfuscator.cs" />
+    <Compile Include="FakeObfuscator\EazfuscatorDotNet.cs" />
+    <Compile Include="FakeObfuscator\GoliathDotNet.cs" />
+    <Compile Include="FakeObfuscator\Xenocode.cs" />
+    <Compile Include="ForceElevation.cs" />
+    <Compile Include="IntegrityProtection.cs" />
+    <Compile Include="Lzma.cs" />
+    <Compile Include="ModuleFlood.cs" />
+    <Compile Include="Mutation.cs" />
+    <Compile Include="OverwritesHeaders.cs" />
+    <Compile Include="ProcessMonitor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealAntiDebugger.cs" />
+    <Compile Include="RefProxyKey.cs" />
+    <Compile Include="RefProxyStrong.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="Resource_Packer.cs" />
+    <Compile Include="SuperAntiDe4Dot.cs" />
+    <Compile Include="System\Runtime\ExceptionServices\HandleProcessCorruptedStateExceptionsAttribute.cs" />
+    <Compile Include="Testing.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
